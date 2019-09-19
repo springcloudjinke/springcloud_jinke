@@ -10,6 +10,8 @@
  */
 package com.jk.model;
 
+import java.io.Serializable;
+
 /**
  * 〈一句话功能简述〉<br> 
  * 〈a〉
@@ -19,7 +21,7 @@ package com.jk.model;
  * @since 1.0.0
  */
 
-public class Goods {
+public class Goods implements Serializable {
     private  Integer goodsId;
     private  String videoName;//电影名称
     private  String videoGenus;//视频种类   如 ：视频公开课

@@ -39,4 +39,9 @@ public class PageController {
     public String index(){
         return  "index";
     }
+    @RequestMapping("ruzhu")
+    public String ruzhu(){
+        return  "ruzhu";
+    }
+
 }

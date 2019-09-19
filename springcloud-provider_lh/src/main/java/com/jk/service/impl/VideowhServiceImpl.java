@@ -3,6 +3,7 @@ package com.jk.service.impl;
 
 import com.jk.mapper.VideowhDao;
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,12 @@ public class VideowhServiceImpl implements VideowhServiceApi {
     @Override
     public List<Goods> queryvideowh() {
         return videowhDao.queryvideowh();
+    }
+
+    @Override
+    public void addTeacher(Teacher teacher) {
+
+        videowhDao.addTeacher(teacher);
+
     }
 }

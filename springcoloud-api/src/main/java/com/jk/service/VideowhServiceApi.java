@@ -1,6 +1,7 @@
 package com.jk.service;
 
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,10 @@ import java.util.List;
  */
 public interface VideowhServiceApi {
 
-  @RequestMapping(value = "/queryvideowh",method = RequestMethod.POST)
+  @RequestMapping(value = "queryvideowh")
     List<Goods> queryvideowh();
+
+  //讲师新增
+  @RequestMapping("addTeacher")
+    void addTeacher(Teacher teacher);
 }
