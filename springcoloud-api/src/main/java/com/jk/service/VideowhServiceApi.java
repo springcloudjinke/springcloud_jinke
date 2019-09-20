@@ -1,9 +1,11 @@
 package com.jk.service;
 
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,6 +18,10 @@ import java.util.List;
  */
 public interface VideowhServiceApi {
 
-  @RequestMapping(value = "/queryvideowh",method = RequestMethod.POST)
-    List<Goods> queryvideowh();
+  @RequestMapping(value = "/queryvideowh")
+    List<Teacher> queryvideowh();
+    @RequestMapping(value = "/queryTeacher")
+    List<Teacher> queryTeacher(@RequestParam("teacherId") Integer teacherId);
+    @RequestMapping(value = "/queryvideowhById")
+    List<Teacher> queryvideowhById(@RequestParam("teacherId")  Integer teacherId);
 }

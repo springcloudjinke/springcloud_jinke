@@ -1,6 +1,7 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
 import com.jk.util.DataGridResult;
@@ -11,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,22 +38,42 @@ public class VideowhController {
 
 
    //查询首页
-    @RequestMapping(value = "/queryvideowh",method = RequestMethod.POST)
+    @RequestMapping(value ="/queryvideowh")
     @ResponseBody
-    public List<Goods> queryvideowh(Model model) {
-        List<Goods> list = new ArrayList<>();
-        String key = "Video";
+    public List<Teacher> queryvideowh(Model model) {
+        List<Teacher> list = new ArrayList<>();
+      /*  String key = "Video";
         if (redisTemplate.hasKey(key)){
             list = (List<Goods>) redisTemplate.opsForValue().get(key);
-        }else {
+        }else {*/
             list = VideowhService.queryvideowh();
-            redisTemplate.opsForValue().set(key,list);
+          /*  redisTemplate.opsForValue().set(key,list);
             redisTemplate.expire(key, 10, TimeUnit.MINUTES);
         }
-        System.out.println(111111);
+        System.out.println(111111);*/
         return list;
 
         }
 
+
+//查询 每个老师的视频
+    @RequestMapping(value ="/queryTeacher")
+    @ResponseBody
+    public List<Teacher> queryTeacher(Integer teacherId) {
+
+        System.out.println(teacherId);
+        List<Teacher> list = VideowhService.queryTeacher(teacherId);
+        return list;
+    }
+//查询 每个老师的视频
+    //queryvideowhById
+@RequestMapping(value ="/queryvideowhById")
+@ResponseBody
+public List<Teacher> queryvideowhById(Integer teacherId) {
+
+    System.out.println(teacherId);
+    List<Teacher> list = VideowhService.queryvideowhById(teacherId);
+    return list;
+}
 
 }
