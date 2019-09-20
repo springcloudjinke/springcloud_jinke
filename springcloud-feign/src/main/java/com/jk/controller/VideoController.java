@@ -18,7 +18,7 @@ public class VideoController {
 
     @RequestMapping("queryVideo")
     @ResponseBody
-    public DataGridResult queryVideo(ParameUtil parameUtil) {
+    public DataGridResult queryVideo(ParameUtil parameUtil){
 
         DataGridResult dataGridResult = new DataGridResult();
 

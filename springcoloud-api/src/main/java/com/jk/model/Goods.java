@@ -10,8 +10,10 @@
  */
 package com.jk.model;
 
+import java.io.Serializable;
+
 /**
- * 〈一句话功能简述〉<br>
+ * 〈一句话功能简述〉<br> 
  * 〈a〉
  *
  * @author 李辉
@@ -19,15 +21,15 @@ package com.jk.model;
  * @since 1.0.0
  */
 
-public class Goods {
-    private Integer goodsId;
-    private String videoName;//电影名称
-    private String videoGenus;//视频种类   如 ：视频公开课
-    private String teacherName;//讲师名称
-    private String school;//讲师学校
-    private String picture;//讲师图片
-    private String videoType;//课程分类
-    private Integer videoid;//视频id
+public class Goods implements Serializable {
+    private  Integer goodsId;
+    private  String videoName;//电影名称
+    private  String videoGenus;//视频种类   如 ：视频公开课
+    private  String teacherName;//讲师名称
+    private  String school;//讲师学校
+    private  String picture;//讲师图片
+    private  String videoType;//课程分类
+    private  Integer videoid;//视频id
 
     public String getVideoName() {
         return videoName;

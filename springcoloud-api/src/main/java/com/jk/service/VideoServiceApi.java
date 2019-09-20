@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public interface VideoServiceApi {
 
-    @RequestMapping(value = "/queryVideo", method = RequestMethod.POST)
+    @RequestMapping(value = "/queryVideo",method = RequestMethod.POST)
     PageUtil queryVideo(@RequestBody ParameUtil parameUtil);
 
 }

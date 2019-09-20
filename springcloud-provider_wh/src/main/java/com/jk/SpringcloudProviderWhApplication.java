@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableEurekaClient //表明自己是一个eurekaclient.
-@RestController
 @MapperScan("com.jk.mapper")
 public class SpringcloudProviderWhApplication {
 

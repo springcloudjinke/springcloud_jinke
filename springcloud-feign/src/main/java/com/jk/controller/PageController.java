@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.print.DocFlavor;
 
 /**
- * 〈一句话功能简述〉<br>
+ * 〈一句话功能简述〉<br> 
  * 〈a〉
  *
  * @author 李辉
@@ -29,54 +29,19 @@ public class PageController {
 
     //主页面
     @RequestMapping("main")
-    public String main() {
-        return "main";
+    public String main(){
+        return  "main";
     }
 
 
     //主页面
     @RequestMapping("index")
-    public String index() {
-        return "index";
+    public String index(){
+        return  "index";
     }
-
-
-    //登陆
-    @RequestMapping("loginUser")
-    public String loginUser() {
-        return "html/yyw/loginUser";
+    @RequestMapping("ruzhu")
+    public String ruzhu(){
+        return  "ruzhu";
     }
-
-    //登陆
-    @RequestMapping("index1")
-    public String index1() {
-        return "html/yyw/index";
-    }
-
-    //账号管理
-    @RequestMapping("tozhangHao")
-    public String toZhanghao() {
-        return "html/yyw/zhangHao";
-    }
-
-    //账号管理
-    @RequestMapping("togangWei")
-    public String togangWei() {
-        return "html/yyw/gangWei";
-    }
-
-    //查询审核讲师信息
-    @RequestMapping("toTeacList")
-    public String toTeacList() {
-        return "html/yyw/teacList";
-    }
-
-    //查询讲师信息
-    @RequestMapping("toTeacShow")
-    public String toTeacShow() {
-        return "html/yyw/teacShow";
-    }
-
-
 
 }

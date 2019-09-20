@@ -1,6 +1,5 @@
 server:
   port: 8085
-
 spring:
   application:
     name: service-provider
@@ -16,6 +15,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 1
     lease-expiration-duration-in-seconds: 2
+
 
 mybatis:
   config-locations: classpath:mybatis/confg.xml
