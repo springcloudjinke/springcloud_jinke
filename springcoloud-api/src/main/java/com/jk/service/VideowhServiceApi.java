@@ -26,8 +26,6 @@ public interface VideowhServiceApi {
     List<Teacher> queryTeacher(@RequestParam("teacherId") Integer teacherId);
     @RequestMapping(value = "/queryvideowhById")
     List<Teacher> queryvideowhById(@RequestParam("teacherId")  Integer teacherId);
-  @RequestMapping(value = "queryvideowh")
-    List<Goods> queryvideowh();
 
   //讲师新增
   @RequestMapping("addTeacher")
