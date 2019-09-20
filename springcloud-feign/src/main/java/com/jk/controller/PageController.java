@@ -81,6 +81,12 @@ public class PageController {
         return "html/yyw/teacShow";
     }
 
+    //查询学生信息
+    @RequestMapping("toStuList")
+    public String toStuList() {
+        return "html/yyw/stuList";
+    }
+
 
 
 

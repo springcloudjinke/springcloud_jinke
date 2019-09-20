@@ -19,4 +19,18 @@
             </if>
         </where>
     </sql>
+
+
+    <select id="queryStudent" resultType="com.jk.model.Student">
+        select * from t_student
+        <include refid="cha2"></include>
+    </select>
+
+    <sql id="cha2">
+        <where>
+            <if test="account!= null and account !=''">
+                and account like "%${account}%"
+            </if>
+        </where>
+    </sql>
 </mapper>

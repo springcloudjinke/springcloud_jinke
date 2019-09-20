@@ -19,4 +19,7 @@ public interface TeacServiceApi {
     @RequestMapping(value = "/queryTeacShow")
     PageUtil queryTeacShow(@RequestBody  ParameUtil parameUtil);
 
+    @RequestMapping(value = "/queryStudent")
+    PageUtil queryStudent(@RequestBody ParameUtil parameUtil);
+
 }

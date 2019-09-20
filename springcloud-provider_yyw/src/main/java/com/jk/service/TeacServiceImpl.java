@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jk.dao.TeacDao;
 import com.jk.dao.UserDao;
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.User;
 import com.jk.util.PageUtil;
@@ -54,6 +55,18 @@ public class TeacServiceImpl implements TeacServiceApi {
         map.put("teacherName",parameUtil.getTeacherName());
         List<Teacher> list = teacDao.queryTeacShow(map);
         PageInfo<Teacher> pageInfo = new PageInfo<>(list);
+        PageUtil page= new PageUtil((int)pageInfo.getTotal(),parameUtil.getPageNumber(), parameUtil.getPageSize());
+        page.setList(list);
+        return page;
+    }
+
+    @Override
+    public PageUtil queryStudent(ParameUtil parameUtil) {
+        PageHelper.startPage(parameUtil.getPageNumber(),parameUtil.getPageSize());
+        Map map = new HashMap<>();
+        map.put("account",parameUtil.getAccount());
+        List<Student> list = teacDao.queryStudent(map);
+        PageInfo<Student> pageInfo = new PageInfo<>(list);
         PageUtil page= new PageUtil((int)pageInfo.getTotal(),parameUtil.getPageNumber(), parameUtil.getPageSize());
         page.setList(list);
         return page;

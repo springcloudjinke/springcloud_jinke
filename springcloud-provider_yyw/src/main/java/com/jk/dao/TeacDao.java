@@ -1,5 +1,6 @@
 package com.jk.dao;
 
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import org.apache.ibatis.annotations.Update;
 
@@ -16,4 +17,8 @@ public interface TeacDao {
     void pass(Integer id);
 
     List<Teacher> queryTeacShow(Map map);
+
+    List<Student> queryStudent(Map map);
+
+    
 }
