@@ -39,6 +39,8 @@ public class PageController {
     public String index(){
         return  "index";
     }
+
+    //讲师入驻页面
     @RequestMapping("ruzhu")
     public String ruzhu(){
         return  "ruzhu";
