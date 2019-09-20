@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,6 +20,12 @@ import java.util.List;
  */
 public interface VideowhServiceApi {
 
+  @RequestMapping(value = "/queryvideowh")
+    List<Teacher> queryvideowh();
+    @RequestMapping(value = "/queryTeacher")
+    List<Teacher> queryTeacher(@RequestParam("teacherId") Integer teacherId);
+    @RequestMapping(value = "/queryvideowhById")
+    List<Teacher> queryvideowhById(@RequestParam("teacherId")  Integer teacherId);
   @RequestMapping(value = "queryvideowh")
     List<Goods> queryvideowh();
 
