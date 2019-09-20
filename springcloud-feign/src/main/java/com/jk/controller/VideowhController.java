@@ -54,7 +54,7 @@ public class VideowhController {
         }
         System.out.println(111111);*/
         return list;
-
+    }
         //身份证照片
     @RequestMapping("updaloadImg")
     @ResponseBody
