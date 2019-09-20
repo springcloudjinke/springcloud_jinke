@@ -39,9 +39,49 @@ public class PageController {
     public String index(){
         return  "index";
     }
+
     @RequestMapping("ruzhu")
     public String ruzhu(){
         return  "ruzhu";
     }
+
+    //登陆
+    @RequestMapping("loginUser")
+    public String loginUser() {
+        return "html/yyw/loginUser";
+    }
+
+    //登陆
+    @RequestMapping("index1")
+    public String index1() {
+        return "html/yyw/index";
+    }
+
+    //账号管理
+    @RequestMapping("tozhangHao")
+    public String toZhanghao() {
+        return "html/yyw/zhangHao";
+    }
+
+    //账号管理
+    @RequestMapping("togangWei")
+    public String togangWei() {
+        return "html/yyw/gangWei";
+    }
+
+    //查询审核讲师信息
+    @RequestMapping("toTeacList")
+    public String toTeacList() {
+        return "html/yyw/teacList";
+    }
+
+    //查询讲师信息
+    @RequestMapping("toTeacShow")
+    public String toTeacShow() {
+        return "html/yyw/teacShow";
+    }
+
+
+
 
 }
