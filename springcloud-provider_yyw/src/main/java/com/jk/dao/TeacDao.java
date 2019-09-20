@@ -2,6 +2,8 @@ package com.jk.dao;
 
 import com.jk.model.Student;
 import com.jk.model.Teacher;
+import com.jk.model.User;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -20,5 +22,7 @@ public interface TeacDao {
 
     List<Student> queryStudent(Map map);
 
-    
+    @Select("select * from t_student where account =#{account}")
+    Student queryStuName(String account);
+
 }
