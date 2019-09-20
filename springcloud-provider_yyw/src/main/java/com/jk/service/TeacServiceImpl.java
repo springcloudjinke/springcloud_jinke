@@ -72,7 +72,7 @@ public class TeacServiceImpl implements TeacServiceApi {
         page.setList(list);
         return page;
     }
-
+ //前登陆
     @Override
     public Student queryStuName(String account) {
         return teacDao.queryStuName(account);
