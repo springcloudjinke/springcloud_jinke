@@ -10,8 +10,14 @@
  */
 package com.jk.controller;
 
+import com.jk.model.Goods;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
 
 import javax.print.DocFlavor;
 
@@ -39,11 +45,65 @@ public class PageController {
     public String index(){
         return  "index";
     }
+//ruzhu
 
-    //讲师入驻页面
     @RequestMapping("ruzhu")
     public String ruzhu(){
         return  "ruzhu";
     }
+
+    //视频
+    @RequestMapping("ship")
+    public ModelAndView ship(Integer teacherId){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("ship");
+        mv.addObject("teacherId",teacherId);
+        return  mv;
+    }
+
+    //登陆
+    @RequestMapping("loginUser")
+    public String loginUser() {
+        return "html/yyw/loginUser";
+    }
+
+    //登陆
+    @RequestMapping("index1")
+    public String index1() {
+        return "html/yyw/index";
+    }
+
+    //账号管理
+    @RequestMapping("tozhangHao")
+    public String toZhanghao() {
+        return "html/yyw/zhangHao";
+    }
+
+    //账号管理
+    @RequestMapping("togangWei")
+    public String togangWei() {
+        return "html/yyw/gangWei";
+    }
+
+    //查询审核讲师信息
+    @RequestMapping("toTeacList")
+    public String toTeacList() {
+        return "html/yyw/teacList";
+    }
+
+    //查询讲师信息
+    @RequestMapping("toTeacShow")
+    public String toTeacShow() {
+        return "html/yyw/teacShow";
+    }
+
+    //查询学生信息
+    @RequestMapping("toStuList")
+    public String toStuList() {
+        return "html/yyw/stuList";
+    }
+
+
+
 
 }

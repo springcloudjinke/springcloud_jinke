@@ -18,6 +18,9 @@ public class Video implements Serializable {
     private Integer videoTypeId;        //视频类型id;
     private Integer teacherId;          //讲师id;
 
+    private String  courseIntroduction;//课程介绍
+
+    private String  introduction;//本讲介绍
     public Integer getVideoTypeId() {
         return videoTypeId;
     }
@@ -58,5 +61,19 @@ public class Video implements Serializable {
         this.videoUrl = videoUrl;
     }
 
+    public String getCourseIntroduction() {
+        return courseIntroduction;
+    }
 
+    public void setCourseIntroduction(String courseIntroduction) {
+        this.courseIntroduction = courseIntroduction;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
 }

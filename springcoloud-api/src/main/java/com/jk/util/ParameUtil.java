@@ -11,6 +11,34 @@ public class ParameUtil implements Serializable {
 
     private String bname;
 
+    private String userName;   //用户名条差
+    private String teacherName;  //讲师姓名
+    private String account;  //学生账号
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
     public String getBname() {
         return bname;
     }
