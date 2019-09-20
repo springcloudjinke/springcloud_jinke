@@ -65,5 +65,18 @@ public class PageController {
         return "html/yyw/gangWei";
     }
 
+    //查询审核讲师信息
+    @RequestMapping("toTeacList")
+    public String toTeacList() {
+        return "html/yyw/teacList";
+    }
+
+    //查询讲师信息
+    @RequestMapping("toTeacShow")
+    public String toTeacShow() {
+        return "html/yyw/teacShow";
+    }
+
+
 
 }
