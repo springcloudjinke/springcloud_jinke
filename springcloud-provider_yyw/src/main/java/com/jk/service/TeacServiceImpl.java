@@ -48,6 +48,7 @@ public class TeacServiceImpl implements TeacServiceApi {
         teacDao.pass(id);
     }
 
+    //查询讲师
     @Override
     public PageUtil queryTeacShow(ParameUtil parameUtil) {
         PageHelper.startPage(parameUtil.getPageNumber(),parameUtil.getPageSize());
@@ -59,7 +60,7 @@ public class TeacServiceImpl implements TeacServiceApi {
         page.setList(list);
         return page;
     }
-
+    //查询学生
     @Override
     public PageUtil queryStudent(ParameUtil parameUtil) {
         PageHelper.startPage(parameUtil.getPageNumber(),parameUtil.getPageSize());
