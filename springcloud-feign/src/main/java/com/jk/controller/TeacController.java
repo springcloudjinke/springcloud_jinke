@@ -1,5 +1,7 @@
 package com.jk.controller;
 
+import com.jk.model.Student;
+import com.jk.model.User;
 import com.jk.service.TeacService;
 import com.jk.util.DataGridResult;
 import com.jk.util.PageUtil;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("teac")
@@ -55,7 +59,7 @@ public class TeacController {
         return result;
     }
 
-    //查询讲师
+    //查询学生
     @RequestMapping("queryStudent")
     @ResponseBody
     public DataGridResult queryStudent(@RequestBody ParameUtil parameUtil) {
@@ -67,6 +71,25 @@ public class TeacController {
         return result;
     }
 
+
+    //前登陆
+    @RequestMapping("loginStu")
+    @ResponseBody
+    public String login(Student student, HttpServletRequest request) {
+        //验证账号
+        Student loginUser = teacService.queryStuName(student.getAccount());
+
+        if (loginUser == null) {
+            return "userError";
+        }
+        //验证密码
+        if (!loginUser.getPassword().equals(student.getPassword())) {
+            return "pwError";
+        }
+        //登录成功
+        request.getSession().setAttribute("luser", loginUser);
+        return "success";
+    }
 
 
 

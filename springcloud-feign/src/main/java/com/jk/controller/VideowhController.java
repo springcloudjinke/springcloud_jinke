@@ -1,9 +1,11 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
 import com.jk.util.DataGridResult;
+import com.jk.util.OSSClientUtil;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
 import feign.Body;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -48,13 +52,13 @@ public class VideowhController {
         if (redisTemplate.hasKey(key)){
             list = (List<Goods>) redisTemplate.opsForValue().get(key);
         }else {*/
-            list = VideowhService.queryvideowh();
+        list = VideowhService.queryvideowh();
           /*  redisTemplate.opsForValue().set(key,list);
             redisTemplate.expire(key, 10, TimeUnit.MINUTES);
         }
         System.out.println(111111);*/
         return list;
-
+    }
         //身份证照片
     @RequestMapping("updaloadImg")
     @ResponseBody
