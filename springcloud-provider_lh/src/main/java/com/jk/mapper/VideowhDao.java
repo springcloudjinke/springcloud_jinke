@@ -13,4 +13,7 @@ public interface VideowhDao {
     List<Teacher> queryTeacher(Integer teacherId);
     @Select("select * from t_teacher t,t_video v where t.videoid=v.videoid  and t.teacherId=#{teacherId}")
     List<Teacher> queryvideowhById(Integer teacherId);
+
+
+    void addTeacher(Teacher teacher);
 }

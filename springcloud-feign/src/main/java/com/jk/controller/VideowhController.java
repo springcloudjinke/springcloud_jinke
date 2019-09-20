@@ -1,7 +1,6 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
-import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
 import com.jk.util.DataGridResult;
@@ -12,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +55,20 @@ public class VideowhController {
         System.out.println(111111);*/
         return list;
 
+        //身份证照片
+    @RequestMapping("updaloadImg")
+    @ResponseBody
+    public String uploadImg(MultipartFile imgg)throws IOException {
+        if (imgg == null || imgg.getSize() <= 0) {
+            throw new IOException("file不能为空");
         }
+        OSSClientUtil ossClient=new OSSClientUtil();
+        String name = ossClient.uploadImg2Oss(imgg);
+        String imgUrl = ossClient.getImgUrl(name);
+        String[] split = imgUrl.split("\\?");
+        //System.out.println(split[0]);
+        return split[0];
+    }
 
 
 //查询 每个老师的视频
@@ -75,5 +90,27 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
     List<Teacher> list = VideowhService.queryvideowhById(teacherId);
     return list;
 }
+    //头像照片
+    @RequestMapping("updaloadImg1")
+    @ResponseBody
+    public String updaloadImg1(MultipartFile img)throws IOException {
+        if (img == null || img.getSize() <= 0) {
+            throw new IOException("file不能为空");
+        }
+        OSSClientUtil ossClient=new OSSClientUtil();
+        String name = ossClient.uploadImg2Oss(img);
+        String imgUrl = ossClient.getImgUrl(name);
+        String[] split = imgUrl.split("\\?");
+        //System.out.println(split[0]);
+        return split[0];
+    }
 
+    //讲师入驻
+    @RequestMapping("addTeacher")
+    @ResponseBody
+    public void addTeacher(Teacher teacher){
+
+        VideowhService.addTeacher(teacher);
+
+    }
 }

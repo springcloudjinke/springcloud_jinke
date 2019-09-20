@@ -1,10 +1,7 @@
 package com.jk.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
-import java.util.Date;
+
 
 public class Teacher implements Serializable {
     private Integer teacherId;
@@ -18,9 +15,9 @@ public class Teacher implements Serializable {
     private  String idCard;//身份证
     private  String idCardPhone;//身份证照片
     private  String persionInfo;//个人简介
-    private  Integer phone;//联系方式
+    private  String phone;//联系方式
     private  Integer experience;//教学经验
-
+    private Integer status;         // 0.审核中  1.审核通过  2.审核失败
 
     public Integer getTeacherId() {
         return teacherId;
@@ -110,11 +107,11 @@ public class Teacher implements Serializable {
         this.persionInfo = persionInfo;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -124,5 +121,13 @@ public class Teacher implements Serializable {
 
     public void setExperience(Integer experience) {
         this.experience = experience;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
