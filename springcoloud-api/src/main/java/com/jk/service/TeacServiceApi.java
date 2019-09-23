@@ -1,5 +1,7 @@
 package com.jk.service;
 
+import com.jk.model.Student;
+import com.jk.model.User;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface TeacServiceApi {
     @RequestMapping(value = "/queryTeac")
-    PageUtil queryTeac(@RequestBody  ParameUtil parameUtil);
+    PageUtil queryTeac(@RequestBody ParameUtil parameUtil);
 
     @RequestMapping(value = "/refuse")
     void refuse(@RequestParam("id") Integer id);
@@ -17,9 +19,17 @@ public interface TeacServiceApi {
     void pass(@RequestParam("id") Integer id);
 
     @RequestMapping(value = "/queryTeacShow")
-    PageUtil queryTeacShow(@RequestBody  ParameUtil parameUtil);
+    PageUtil queryTeacShow(@RequestBody ParameUtil parameUtil);
 
     @RequestMapping(value = "/queryStudent")
     PageUtil queryStudent(@RequestBody ParameUtil parameUtil);
+
+    @RequestMapping(value = "/queryStuName")
+    Student queryStuName(@RequestParam("account") String account);
+
+    @RequestMapping(value = "/queryStudentShow")
+    PageUtil queryStudentShow(@RequestBody ParameUtil parameUtil);
+
+
 
 }

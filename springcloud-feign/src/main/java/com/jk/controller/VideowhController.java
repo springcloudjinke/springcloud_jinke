@@ -1,9 +1,12 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.Student;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
 import com.jk.util.DataGridResult;
+import com.jk.util.OSSClientUtil;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
 import feign.Body;
@@ -15,8 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -111,6 +119,38 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
     public void addTeacher(Teacher teacher){
 
         VideowhService.addTeacher(teacher);
+    }
 
+
+
+
+
+    @RequestMapping("addHuiYuan")
+    @ResponseBody
+    public void addHuiYuan(HttpServletRequest request,Integer day){
+        Student luser =(Student) request.getSession().getAttribute("luser");
+
+
+if(luser.getMemberDate()==null){
+    VideowhService.addHuiYuan(luser.getId(),day);
+   Student stu= VideowhService.queryHui(luser.getId());
+
+}else{
+    VideowhService.addHuiYuan2(luser.getId(),day);
+    Student stu= VideowhService.queryHui(luser.getId());
+
+
+    }
+}
+    @RequestMapping("queryHuiYuan")
+    @ResponseBody
+    public void queryHuiYuan(HttpServletRequest request){
+        Student luser =(Student) request.getSession().getAttribute("luser");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = df.format(new Date());
+        String format1 = df.format(luser.getMemberTime());
+        if(format.equals(format1)){
+            VideowhService.updateHuiYuan(luser.getId());
+        }
     }
 }

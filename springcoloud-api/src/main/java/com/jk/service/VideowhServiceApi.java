@@ -1,6 +1,7 @@
 package com.jk.service;
 
 import com.jk.model.Goods;
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,4 +32,16 @@ public interface VideowhServiceApi {
   //讲师新增
   @RequestMapping("addTeacher")
     void addTeacher(@RequestBody Teacher teacher);
+  //新增会员
+  @RequestMapping("addHuiYuan")
+    void addHuiYuan(Integer id, Integer day);
+  //新增会员2
+  @RequestMapping("addHuiYuan")
+  void addHuiYuan2(Integer id, Integer day);
+  //新增会员查看
+  @RequestMapping("queryHui")
+  Student queryHui(Integer id);
+//删除会员
+@RequestMapping("queryHuiYuan")
+  void updateHuiYuan(Integer id);
 }

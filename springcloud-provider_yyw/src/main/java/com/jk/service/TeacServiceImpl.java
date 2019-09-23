@@ -72,4 +72,23 @@ public class TeacServiceImpl implements TeacServiceApi {
         page.setList(list);
         return page;
     }
+    //前登陆
+    @Override
+    public Student queryStuName(String account) {
+        return teacDao.queryStuName(account);
+    }
+
+    //查询学生会员信息
+    @Override
+    public PageUtil queryStudentShow(ParameUtil parameUtil) {
+
+        PageHelper.startPage(parameUtil.getPageNumber(),parameUtil.getPageSize());
+        Map map = new HashMap<>();
+        map.put("account",parameUtil.getAccount());
+        List<Student> list = teacDao.queryStudentShow(map);
+        PageInfo<Student> pageInfo = new PageInfo<>(list);
+        PageUtil page= new PageUtil((int)pageInfo.getTotal(),parameUtil.getPageNumber(), parameUtil.getPageSize());
+        page.setList(list);
+        return page;
+    }
 }
