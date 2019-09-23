@@ -38,10 +38,10 @@
     <!--oss js-->
     <link rel="stylesheet" href="/js/bootstrap-fileinput/css/fileinput.css">
     <script type="text/javascript" src="/js/bootstrap-fileinput/js/fileinput.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-fileinput/js/locales/zh.js"></script
+    <script type="text/javascript" src="/js/bootstrap-fileinput/js/locales/zh.js"></script>
 
 </head>
-<body>
+<body><center>
 <form role="form" id="formId">
     <div class="form-group">
         <label>真实姓名</label><br>
@@ -57,11 +57,12 @@
     </div>
     <div class="row myrow">
             <label for="headImg">身份证正面照片</label>
-        <br>
-        <div class="col-md-10" >
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-md-10">
             <input type="text" id="idCardPhone" name="idCardPhone" />
             <input type="file" class="projectfile"  name="img" id="headImg1">
         </div>
+
     </div>
     <div class="form-group">
         <label>主营科目</label><br>
@@ -91,11 +92,12 @@
         </div>
     </div>
         <div class="form-group">
-        <label>教学经验</label>
+        <label>教学经验</label><br>
         <input type="text"name="experience"/>年
     </div>
     <input type="button" value="提交" onclick="addTeacher()">
 </form>
+</center>
 </body>
 <script>
     function addTeacher(){
@@ -104,7 +106,7 @@
             type:"post",
             data:$("#formId").serialize(),
             success:function () {
-                alert("新增成功");
+                alert("新增成功,等待管理员审核!");
             },
             error:function () {
                 alert("新增失败");
