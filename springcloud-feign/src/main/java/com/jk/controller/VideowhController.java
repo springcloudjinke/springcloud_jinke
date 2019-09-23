@@ -1,9 +1,11 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
 import com.jk.util.DataGridResult;
+import com.jk.util.OSSClientUtil;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
 import feign.Body;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

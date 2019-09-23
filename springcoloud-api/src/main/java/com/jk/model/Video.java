@@ -12,11 +12,11 @@ import java.io.Serializable;
 
 public class Video implements Serializable {
 
-    private Integer videoid;            //视频表;
+    private Integer vid;            //视频表;
     private String videoName;           //视频名称;
     private String videoUrl;            //视频路径;
     private Integer videoTypeId;        //视频类型id;
-    private Integer teacherId;          //讲师id;
+    private Integer tid;          //讲师id;
 
     private String  courseIntroduction;//课程介绍
 
@@ -29,20 +29,20 @@ public class Video implements Serializable {
         this.videoTypeId = videoTypeId;
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public Integer getTid() {
+        return tid;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTid(Integer tid) {
+        this.tid = tid;
     }
 
-    public Integer getVideoid() {
-        return videoid;
+    public Integer getVid() {
+        return vid;
     }
 
-    public void setVideoid(Integer videoid) {
-        this.videoid = videoid;
+    public void setVid(Integer vid) {
+        this.vid = vid;
     }
 
     public String getVideoName() {

@@ -73,6 +73,12 @@ public class PageController {
         return "html/yyw/index";
     }
 
+    //dhy  页面video
+    @RequestMapping("toVideo")
+    public String toVideo(){
+        return "html/dhy/showTeacher";
+    }
+
     //账号管理
     @RequestMapping("tozhangHao")
     public String toZhanghao() {
