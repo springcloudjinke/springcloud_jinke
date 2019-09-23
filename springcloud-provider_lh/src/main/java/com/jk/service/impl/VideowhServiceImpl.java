@@ -86,6 +86,6 @@ if(member==2){
     @RequestMapping("updData")
     public void updData(@RequestBody Student student) {
 
-        System.out.println(student.getId());
+        videowhDao.updData(student);
     }
 }

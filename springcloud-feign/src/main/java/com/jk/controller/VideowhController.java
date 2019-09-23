@@ -1,6 +1,7 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
@@ -125,28 +126,29 @@ public class VideowhController {
     //个人中心 -- 个人资料修改
     @RequestMapping("updData")
     @ResponseBody
-    public void updData(Student student){
+    public void updData(Student student) {
 
         VideowhService.updData(student);
 
+    }
 
-//新增会员
+    //新增会员
     @RequestMapping("addHuiYuan")
     @ResponseBody
     public void addHuiYuan(HttpServletRequest request,Integer day){
         Student luser =(Student) request.getSession().getAttribute("luser");
-    VideowhService.addHuiYuan(luser.getId(), day,luser.getMember());
+        VideowhService.addHuiYuan(luser.getId(), day,luser.getMember());
 
-}
-//会员到期
+    }
+    //会员到期
     @RequestMapping("queryHuiYuan")
     @ResponseBody
     public void queryHuiYuan(HttpServletRequest request){
-        Student luser =(Student) request.getSession().getAttribute("luser");
+        Student luser = (Student) request.getSession().getAttribute("luser");
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = df.format(new Date());
         String format1 = df.format(luser.getMemberTime());
-        if(format.equals(format1)){
+        if (format.equals(format1)) {
             VideowhService.updateHuiYuan(luser.getId());
         }
     }
