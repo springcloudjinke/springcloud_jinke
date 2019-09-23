@@ -28,15 +28,12 @@ public interface VideowhServiceApi {
     List<Teacher> queryTeacher(@RequestParam("teacherId") Integer teacherId);
     @RequestMapping(value = "/queryvideowhById")
     List<Teacher> queryvideowhById(@RequestParam("teacherId")  Integer teacherId);
-
   //讲师新增
   @RequestMapping("addTeacher")
     void addTeacher(@RequestBody Teacher teacher);
   //新增会员
   @RequestMapping("addHuiYuan")
   void addHuiYuan(@RequestParam("id") Integer id,@RequestParam("day") Integer day,@RequestParam("member") Integer member);
-
-
 //删除会员
 @RequestMapping("queryHuiYuan")
   void updateHuiYuan(@RequestParam("id") Integer id);

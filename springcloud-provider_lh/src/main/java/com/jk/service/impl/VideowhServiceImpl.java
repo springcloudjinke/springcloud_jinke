@@ -75,6 +75,7 @@ if(member==2){
 
 
     @Override
+    //会员到期
     @RequestMapping("queryHuiYuan")
     public void updateHuiYuan(@RequestParam("id")Integer id) {
         videowhDao.updateHuiYuan(id);

@@ -22,7 +22,7 @@ public class AlipayDemoController {
 
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
-    public String goAlipay(HttpServletRequest request, HttpServletRequest response,String price) throws Exception {
+    public String goAlipay(HttpServletRequest request, HttpServletRequest response,String price,Integer day) throws Exception {
 
 
         //获得初始化的AlipayClient
@@ -30,7 +30,8 @@ public class AlipayDemoController {
 
         //设置请求参数
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
-        alipayRequest.setReturnUrl(AlipayConfig.return_url);
+        alipayRequest.setReturnUrl(AlipayConfig.return_url+"?day="+day);
+
         alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 
 

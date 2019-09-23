@@ -125,7 +125,7 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
 
 
 
-
+//新增会员
     @RequestMapping("addHuiYuan")
     @ResponseBody
     public void addHuiYuan(HttpServletRequest request,Integer day){
@@ -133,6 +133,7 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
     VideowhService.addHuiYuan(luser.getId(), day,luser.getMember());
 
 }
+//会员到期
     @RequestMapping("queryHuiYuan")
     @ResponseBody
     public void queryHuiYuan(HttpServletRequest request){
