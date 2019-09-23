@@ -80,4 +80,12 @@ if(member==2){
     public void updateHuiYuan(@RequestParam("id")Integer id) {
         videowhDao.updateHuiYuan(id);
     }
+
+    //个人中心 -- 个人资料修改
+    @Override
+    @RequestMapping("updData")
+    public void updData(@RequestBody Student student) {
+
+        System.out.println(student.getId());
+    }
 }

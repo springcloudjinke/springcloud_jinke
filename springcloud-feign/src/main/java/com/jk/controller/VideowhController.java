@@ -1,7 +1,6 @@
 package com.jk.controller;
 
 import com.jk.model.Goods;
-import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhService;
@@ -89,11 +88,11 @@ public class VideowhController {
         List<Teacher> list = VideowhService.queryTeacher(teacherId);
         return list;
     }
-//查询 每个老师的视频
-    //queryvideowhById
-@RequestMapping(value ="/queryvideowhById")
-@ResponseBody
-public List<Teacher> queryvideowhById(Integer teacherId) {
+        //查询 每个老师的视频
+            //queryvideowhById
+        @RequestMapping(value ="/queryvideowhById")
+        @ResponseBody
+        public List<Teacher> queryvideowhById(Integer teacherId) {
 
     System.out.println(teacherId);
     List<Teacher> list = VideowhService.queryvideowhById(teacherId);
@@ -123,6 +122,12 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
     }
 
 
+    //个人中心 -- 个人资料修改
+    @RequestMapping("updData")
+    @ResponseBody
+    public void updData(Student student){
+
+        VideowhService.updData(student);
 
 
 //新增会员

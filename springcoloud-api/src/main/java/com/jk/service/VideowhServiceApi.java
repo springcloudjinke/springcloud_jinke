@@ -39,4 +39,9 @@ public interface VideowhServiceApi {
   void updateHuiYuan(@RequestParam("id") Integer id);
 
 
+
+  //个人中心 -- 个人资料修改
+  @RequestMapping("updData")
+    void updData(@RequestBody Student student);
+
 }

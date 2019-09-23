@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.print.DocFlavor;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 〈一句话功能简述〉<br> 
@@ -115,7 +116,12 @@ public class PageController {
         return "html/yyw/stuList";
     }
 
-
+    //注销
+    @RequestMapping("zhuxiao")
+    public String zhuxiao (HttpServletRequest request){
+        request.getSession().removeAttribute("luser");//清空session信息
+        return "main";
+    }
 
     //查询学生会员信息
     @RequestMapping("toStuShow")
@@ -129,4 +135,9 @@ public class PageController {
         return "html/yyw/zhuCe";
     }
 
+    //个人中心
+    @RequestMapping("persion")
+    public String persion() {
+        return "persion";
+    }
 }

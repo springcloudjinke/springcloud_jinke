@@ -24,4 +24,6 @@ public interface VideowhDao {
 
 @Update("update t_student set member=2, memberDate=null where id=#{id}")
     void updateHuiYuan(Integer id);
+
+    void updData(Student student);
 }
