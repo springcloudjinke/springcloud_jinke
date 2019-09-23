@@ -67,7 +67,7 @@ public class PageController {
         return "html/yyw/loginUser";
     }
 
-    //登陆
+    //树
     @RequestMapping("index1")
     public String index1() {
         return "html/yyw/index";
@@ -77,6 +77,12 @@ public class PageController {
     @RequestMapping("toVideo")
     public String toVideo(){
         return "html/dhy/showTeacher";
+    }
+
+    //前登陆
+    @RequestMapping("loginStu")
+    public String loginStu() {
+        return "html/yyw/loginStu";
     }
 
     //账号管理

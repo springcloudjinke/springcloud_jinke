@@ -52,7 +52,7 @@ public class VideowhController {
         if (redisTemplate.hasKey(key)){
             list = (List<Goods>) redisTemplate.opsForValue().get(key);
         }else {*/
-            list = VideowhService.queryvideowh();
+        list = VideowhService.queryvideowh();
           /*  redisTemplate.opsForValue().set(key,list);
             redisTemplate.expire(key, 10, TimeUnit.MINUTES);
         }

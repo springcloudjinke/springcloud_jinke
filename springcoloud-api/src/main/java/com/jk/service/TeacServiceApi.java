@@ -1,5 +1,7 @@
 package com.jk.service;
 
+import com.jk.model.Student;
+import com.jk.model.User;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,5 +23,9 @@ public interface TeacServiceApi {
 
     @RequestMapping(value = "/queryStudent")
     PageUtil queryStudent(@RequestBody ParameUtil parameUtil);
+
+    @RequestMapping(value = "/queryStuName")
+    Student queryStuName(@RequestParam("account") String account);
+
 
 }
