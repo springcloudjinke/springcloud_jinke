@@ -3,6 +3,7 @@ package com.jk.service.impl;
 
 import com.jk.mapper.VideowhDao;
 import com.jk.model.Goods;
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhServiceApi;
@@ -47,11 +48,21 @@ public class VideowhServiceImpl implements VideowhServiceApi {
         return videowhDao.queryvideowhById(teacherId);
     }
 
+
+    //讲师新增
     @Override
     @RequestMapping("addTeacher")
     public void addTeacher(@RequestBody Teacher teacher) {
 
         videowhDao.addTeacher(teacher);
 
+    }
+
+    //个人中心 -- 个人资料修改
+    @Override
+    @RequestMapping("updData")
+    public void updData(@RequestBody Student student) {
+
+        System.out.println(student.getId());
     }
 }

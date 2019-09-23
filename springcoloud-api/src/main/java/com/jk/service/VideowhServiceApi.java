@@ -1,6 +1,7 @@
 package com.jk.service;
 
 import com.jk.model.Goods;
+import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,4 +31,9 @@ public interface VideowhServiceApi {
   //讲师新增
   @RequestMapping("addTeacher")
     void addTeacher(@RequestBody Teacher teacher);
+
+  //个人中心 -- 个人资料修改
+  @RequestMapping("updData")
+    void updData(@RequestBody Student student);
+    
 }
