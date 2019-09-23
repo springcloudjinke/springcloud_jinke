@@ -21,8 +21,7 @@ public interface VideowhDao {
     void addHuiYuan(Integer id, Integer day);
     @Update("update  t_student set member=1,memberTime=date_add(memberTime, interval #{day} day) where id=#{id}")
     void addHuiYuan2(Integer id, Integer day);
-@Select("select * from t_student where id=#{id}")
-    Student queryHui(Integer id);
+
 @Update("update t_student set member=2, memberDate=null where id=#{id}")
     void updateHuiYuan(Integer id);
 }

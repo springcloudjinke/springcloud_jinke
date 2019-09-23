@@ -56,25 +56,23 @@ public class VideowhServiceImpl implements VideowhServiceApi {
         videowhDao.addTeacher(teacher);
 
     }
+
+
+
     //新增会员
     @Override
     @RequestMapping("addHuiYuan")
-    public void addHuiYuan(@RequestParam("id") Integer id, @RequestParam("day")  Integer day) {
+    public void addHuiYuan(@RequestParam("id") Integer id, @RequestParam("day")  Integer day,@RequestParam("member")Integer member) {
 
-        videowhDao.addHuiYuan(id,day);
-    }
-    //新增会员
-    @Override
-    @RequestMapping("addHuiYuan")
-    public void addHuiYuan2(@RequestParam("id") Integer id, @RequestParam("day")  Integer day) {
-        videowhDao.addHuiYuan2(id,day);
+if(member==2){
+    videowhDao.addHuiYuan(id,day);
+}else{
+    videowhDao.addHuiYuan2(id,day);
+}
+
     }
 
-    @Override
-    @RequestMapping("addHuiYuan")
-    public Student queryHui(@RequestParam("id") Integer id) {
-        return videowhDao.queryHui(id);
-    }
+
 
     @Override
     @RequestMapping("queryHuiYuan")

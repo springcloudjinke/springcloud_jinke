@@ -129,18 +129,8 @@ public List<Teacher> queryvideowhById(Integer teacherId) {
     @ResponseBody
     public void addHuiYuan(HttpServletRequest request,Integer day){
         Student luser =(Student) request.getSession().getAttribute("luser");
+    VideowhService.addHuiYuan(luser.getId(), day,luser.getMember());
 
-
-if(luser.getMemberDate()==null){
-    VideowhService.addHuiYuan(luser.getId(),day);
-   Student stu= VideowhService.queryHui(luser.getId());
-
-}else{
-    VideowhService.addHuiYuan2(luser.getId(),day);
-    Student stu= VideowhService.queryHui(luser.getId());
-
-
-    }
 }
     @RequestMapping("queryHuiYuan")
     @ResponseBody

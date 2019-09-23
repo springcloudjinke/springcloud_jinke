@@ -34,14 +34,12 @@ public interface VideowhServiceApi {
     void addTeacher(@RequestBody Teacher teacher);
   //新增会员
   @RequestMapping("addHuiYuan")
-    void addHuiYuan(Integer id, Integer day);
-  //新增会员2
-  @RequestMapping("addHuiYuan")
-  void addHuiYuan2(Integer id, Integer day);
-  //新增会员查看
-  @RequestMapping("queryHui")
-  Student queryHui(Integer id);
+  void addHuiYuan(@RequestParam("id") Integer id,@RequestParam("day") Integer day,@RequestParam("member") Integer member);
+
+
 //删除会员
 @RequestMapping("queryHuiYuan")
-  void updateHuiYuan(Integer id);
+  void updateHuiYuan(@RequestParam("id") Integer id);
+
+
 }
