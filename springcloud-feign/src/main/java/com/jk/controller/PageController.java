@@ -74,6 +74,12 @@ public class PageController {
         return "html/yyw/index";
     }
 
+    //dhy  页面video
+    @RequestMapping("toVideo")
+    public String toVideo(){
+        return "html/dhy/showTeacher";
+    }
+
     //前登陆
     @RequestMapping("loginStu")
     public String loginStu() {
