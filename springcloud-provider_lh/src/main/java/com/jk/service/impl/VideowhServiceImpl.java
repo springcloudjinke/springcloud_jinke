@@ -7,7 +7,12 @@ import com.jk.model.Student;
 import com.jk.model.Teacher;
 import com.jk.model.Video;
 import com.jk.service.VideowhServiceApi;
+import com.jk.util.PageUtil;
+import com.jk.util.ParameUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,12 +33,17 @@ public class VideowhServiceImpl implements VideowhServiceApi {
 
     @Autowired
     private VideowhDao videowhDao;
-//首页
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    //首页
     @Override
     @RequestMapping(value = "/queryvideowh")
     public List<Teacher> queryvideowh() {
         return videowhDao.queryvideowh();
     }
+
     //ship   页面
     @Override
     @RequestMapping(value = "/queryTeacher")
@@ -63,6 +73,25 @@ public class VideowhServiceImpl implements VideowhServiceApi {
     @RequestMapping("updData")
     public void updData(@RequestBody Student student) {
 
-        System.out.println(student.getId());
+        videowhDao.updData(student);
+
+    }
+
+    //个人中心--查询我的课程 mongodb
+    @Override
+    @RequestMapping("queryMyCourse")
+    public PageUtil queryMyCourse(ParameUtil param) {
+        Criteria c = new Criteria();
+        Query query = new Query();
+        query.addCriteria(c);
+        long count = mongoTemplate.count(query, Teacher.class, "Comment");
+        PageUtil pageUtil = new PageUtil((int) count, param.getPageNumber(), param.getPageSize());
+        Integer skip = pageUtil.getFirstResultCount();
+        query.skip(skip);
+        query.limit(param.getPageSize());
+        List<Teacher> list = mongoTemplate.find(query, Teacher.class, "Comment");
+        pageUtil.setList(list);
+        return pageUtil;
     }
 }
+

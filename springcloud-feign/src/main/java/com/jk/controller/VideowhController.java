@@ -44,7 +44,7 @@ public class VideowhController {
     private RedisTemplate redisTemplate;
 
 
-   //查询首页
+    //查询首页
     @RequestMapping(value ="/queryvideowh")
     @ResponseBody
     public List<Teacher> queryvideowh(Model model) {
@@ -60,6 +60,8 @@ public class VideowhController {
         System.out.println(111111);*/
         return list;
     }
+
+
         //身份证照片
     @RequestMapping("updaloadImg")
     @ResponseBody
@@ -126,7 +128,17 @@ public class VideowhController {
 
         VideowhService.updData(student);
 
-
     }
 
+
+    //个人中心--查询我的课程  mongodb
+    @RequestMapping("queryMyCourse")
+    @ResponseBody
+    public DataGridResult queryCust(@RequestBody ParameUtil param){
+        DataGridResult result = new DataGridResult();
+        PageUtil pageUtil = VideowhService.queryMyCourse(param);
+        result.setRows(pageUtil.getList());
+        result.setTotal(pageUtil.getSumSize());
+        return result;
+    }
 }

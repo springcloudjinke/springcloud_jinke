@@ -10,16 +10,13 @@
  */
 package com.jk.controller;
 
-import com.jk.model.Goods;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import javax.print.DocFlavor;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -123,9 +120,16 @@ public class PageController {
         return "main";
     }
 
-    //个人中心
+    //个人中心页面
     @RequestMapping("persion")
     public String persion() {
         return "persion";
+    }
+
+
+    //个人中心--我的课程
+    @RequestMapping("mycourse")
+    public String mycourse(){
+        return "mycourse";
     }
 }

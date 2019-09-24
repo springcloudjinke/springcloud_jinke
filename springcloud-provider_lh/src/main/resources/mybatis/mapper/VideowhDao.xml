@@ -8,6 +8,6 @@
         values(#{teacherName},#{school},#{picture},#{videoType},#{idCard},#{idCardPhone},#{persionInfo},#{phone},#{experience},0)
     </insert>
     <update id="updData" parameterType="com.jk.model.Student">
-        update t_student set nickname=#{nickname},resume=#{resume} where id=#{id}
+        update t_student set nickname=#{nickname},name=#{name},resume=#{resume} where id=#{id}
     </update>
 </mapper>
