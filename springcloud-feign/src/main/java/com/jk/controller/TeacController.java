@@ -92,6 +92,16 @@ public class TeacController {
     }
 
 
+    //查询会员学生
+    @RequestMapping("queryStudentShow")
+    @ResponseBody
+    public DataGridResult queryStudentShow(@RequestBody ParameUtil parameUtil) {
+        PageUtil pageUtil = teacService.queryStudentShow(parameUtil);
+        DataGridResult result = new DataGridResult();
+        result.setRows(pageUtil.getList());
+        result.setTotal(pageUtil.getSumSize());
+        return result;
+    }
 
 
 

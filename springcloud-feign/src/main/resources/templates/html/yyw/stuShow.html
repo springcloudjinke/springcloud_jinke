@@ -66,7 +66,7 @@
 
 
         $("#dataGrid").bootstrapTable({
-            url: "../teac/queryStudent",
+            url: "../teac/queryStudentShow",
             method: 'post',
             striped: true,  	// 斑马线效果     默认false
             //只允许选中一行
@@ -141,8 +141,8 @@
                         }
                     }
                 },
-         /*       {field: 'memberDate', title: '开始日期', width: 250},
-                {field: 'memberTime', title: '结束日期', width: 250},*/
+                {field: 'memberDate', title: '开始日期', width: 250},
+                {field: 'memberTime', title: '结束日期', width: 250},
                /* {field: 'cz', title: '操作', width: 250,
                     formatter: function (value, row, index) {
                                 if(row.status==0){

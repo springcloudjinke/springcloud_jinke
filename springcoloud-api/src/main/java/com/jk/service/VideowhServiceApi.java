@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,6 +34,14 @@ public interface VideowhServiceApi {
   //讲师新增
   @RequestMapping("addTeacher")
     void addTeacher(@RequestBody Teacher teacher);
+  //新增会员
+  @RequestMapping("addHuiYuan")
+  void addHuiYuan(@RequestParam("id") Integer id,@RequestParam("day") Integer day,@RequestParam("member") Integer member);
+//删除会员
+@RequestMapping("queryHuiYuan")
+  void updateHuiYuan(@RequestParam("id") Integer id);
+
+
 
   //个人中心 -- 个人资料修改
   @RequestMapping("updData")
@@ -41,4 +50,5 @@ public interface VideowhServiceApi {
   //个人中心--查询我的课程 mongodb
   @RequestMapping("queryMyCourse")
   PageUtil queryMyCourse(ParameUtil param);
+
 }

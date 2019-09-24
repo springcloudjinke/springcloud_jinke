@@ -25,4 +25,7 @@ public interface TeacDao {
     @Select("select * from t_student where account =#{account}")
     Student queryStuName(String account);
 
+    List<Student> queryStudentShow(Map map);
+
+
 }

@@ -120,6 +120,19 @@ public class PageController {
         return "main";
     }
 
+    //查询学生会员信息
+    @RequestMapping("toStuShow")
+    public String toStuShow() {
+        return "html/yyw/stuShow";
+    }
+
+    //前台注册
+    @RequestMapping("zhuCe")
+    public String zhuCe() {
+        return "html/yyw/zhuCe";
+    }
+
+    //个人中心
     //个人中心页面
     @RequestMapping("persion")
     public String persion() {

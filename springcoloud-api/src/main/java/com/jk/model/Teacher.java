@@ -18,7 +18,7 @@ public class Teacher implements Serializable {
     private  String phone;//联系方式
     private  Integer experience;//教学经验
     private Integer status;         // 0.审核中  1.审核通过  2.审核失败
-
+    private  String videoUrl;
     public Integer getTeacherId() {
         return teacherId;
     }
@@ -129,5 +129,13 @@ public class Teacher implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 }

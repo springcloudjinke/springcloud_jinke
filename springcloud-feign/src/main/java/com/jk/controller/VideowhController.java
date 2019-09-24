@@ -21,7 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +48,7 @@ public class VideowhController {
     private RedisTemplate redisTemplate;
 
 
-    //查询首页
+   //查询首页
     @RequestMapping(value ="/queryvideowh")
     @ResponseBody
     public List<Teacher> queryvideowh(Model model) {
@@ -60,8 +64,6 @@ public class VideowhController {
         System.out.println(111111);*/
         return list;
     }
-
-
         //身份证照片
     @RequestMapping("updaloadImg")
     @ResponseBody
@@ -93,7 +95,6 @@ public class VideowhController {
         @ResponseBody
         public List<Teacher> queryvideowhById(Integer teacherId) {
 
-            System.out.println(teacherId);
             List<Teacher> list = VideowhService.queryvideowhById(teacherId);
             return list;
         }
@@ -124,10 +125,18 @@ public class VideowhController {
     //个人中心 -- 个人资料修改
     @RequestMapping("updData")
     @ResponseBody
-    public void updData(Student student){
+    public void updData(Student student) {
 
         VideowhService.updData(student);
 
+    }
+
+    //新增会员
+    @RequestMapping("addHuiYuan")
+    @ResponseBody
+    public void addHuiYuan(HttpServletRequest request,Integer day){
+        Student luser =(Student) request.getSession().getAttribute("luser");
+        VideowhService.addHuiYuan(luser.getId(), day,luser.getMember());
     }
 
 
@@ -140,5 +149,17 @@ public class VideowhController {
         result.setRows(pageUtil.getList());
         result.setTotal(pageUtil.getSumSize());
         return result;
+    }
+    //会员到期
+    @RequestMapping("queryHuiYuan")
+    @ResponseBody
+    public void queryHuiYuan(HttpServletRequest request){
+        Student luser = (Student) request.getSession().getAttribute("luser");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = df.format(new Date());
+        String format1 = df.format(luser.getMemberTime());
+        if (format.equals(format1)) {
+            VideowhService.updateHuiYuan(luser.getId());
+        }
     }
 }
