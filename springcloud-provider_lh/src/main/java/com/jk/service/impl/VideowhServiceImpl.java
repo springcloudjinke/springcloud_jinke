@@ -2,10 +2,7 @@ package com.jk.service.impl;
 
 
 import com.jk.mapper.VideowhDao;
-import com.jk.model.Goods;
-import com.jk.model.Student;
-import com.jk.model.Teacher;
-import com.jk.model.Video;
+import com.jk.model.*;
 import com.jk.service.VideowhServiceApi;
 import com.jk.util.PageUtil;
 import com.jk.util.ParameUtil;
@@ -103,16 +100,16 @@ if(member==2){
     //个人中心--查询我的课程 mongodb
     @Override
     @RequestMapping("queryMyCourse")
-    public PageUtil queryMyCourse(ParameUtil param) {
+    public PageUtil queryMyCourse(@RequestBody ParameUtil param) {
         Criteria c = new Criteria();
         Query query = new Query();
         query.addCriteria(c);
-        long count = mongoTemplate.count(query, Teacher.class, "Comment");
+        long count = mongoTemplate.count(query, Uvideo.class, "uvideo");
         PageUtil pageUtil = new PageUtil((int) count, param.getPageNumber(), param.getPageSize());
         Integer skip = pageUtil.getFirstResultCount();
         query.skip(skip);
         query.limit(param.getPageSize());
-        List<Teacher> list = mongoTemplate.find(query, Teacher.class, "Comment");
+        List<Uvideo> list = mongoTemplate.find(query, Uvideo.class, "uvideo");
         pageUtil.setList(list);
         return pageUtil;
     }
